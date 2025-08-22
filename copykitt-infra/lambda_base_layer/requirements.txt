@@ -1,0 +1,5 @@
+fastapi==0.116.1
+pydantic>=2.6.4,<3.0.0
+mangum==0.13.0
+openai==0.27.8
+python-dotenv==1.0.0
