@@ -1,2 +1,2 @@
-# ai_branding_saas_app
+# A Product Branding Assistant
 Create branding ideas for your product with AI.
