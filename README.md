@@ -6,11 +6,7 @@ Built with **OpenAI’s Python library**, deployed serverlessly using **FastAPI,
 
 ---
 ## Main Interface
-![Brand Generator Interface](./screenshots/app-home.png)
-
----
-## Results Interface
-![Resutls Interface](./screenshots/results.png)
+![Brand Generator Interface](./screenshots/demo.gif)
 
 ---
 
