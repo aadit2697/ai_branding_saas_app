@@ -5,10 +5,12 @@ An **AI-powered branding assistant** that generates catchy snippets and marketin
 Built with **OpenAI’s Python library**, deployed serverlessly using **FastAPI, AWS Lambda, and AWS CDK**, and integrated with a **Next.js frontend** for an interactive user experience.  
 
 ---
-![alt text](image-2.png)
+## Main Interface
+![Brand Generator Interface](./screenshots/app-home.png)
 
 ---
-![alt text](image-1.png)
+## Results Interface
+![Resutls Interface](./screenshots/results.png)
 
 ---
 

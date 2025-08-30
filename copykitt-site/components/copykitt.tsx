@@ -69,40 +69,71 @@ const CopyKitt: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-800 
-                       flex items-center justify-center ">
+                       relative overflow-x-hidden">
             
-            {/* Animated background elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-4 -left-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-                <div className="absolute -bottom-8 -right-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
+            {/* Fixed animated background elements */}
+            <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+                <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+                <div className="absolute bottom-20 right-10 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
+                <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
+                <div className="absolute bottom-1/3 left-20 w-48 h-48 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse animation-delay-6000"></div>
             </div>
 
-            {/* Main heading - Always visible at top */}
-            <div className="text-center mb-6 sm:mb-8 relative z-10 w-full">
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-2
-                             bg-gradient-to-r from-white via-blue-100 to-purple-200 
-                             bg-clip-text text-transparent leading-tight">
-                    Brand Your Product With AI
-                </h1>
+            {/* Scrollable content container */}
+            <div className="relative z-10 w-full">
                 
-                {/* Floating decorative elements - smaller and better positioned */}
-                <div className="absolute top-2 left-1/4 text-xl opacity-60 animate-bounce animation-delay-1000">✨</div>
-                <div className="absolute top-0 right-1/4 text-lg opacity-60 animate-bounce animation-delay-3000">🚀</div>
-                <div className="absolute -bottom-1 left-1/3 text-base opacity-60 animate-bounce animation-delay-5000">💫</div>
-            </div>
+                {/* Header section - always at top */}
+                <header className="w-full py-12 px-4 text-center">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4
+                                 bg-gradient-to-r from-white via-blue-100 to-purple-200 
+                                 bg-clip-text text-transparent leading-tight">
+                        Brand Your Product With AI
+                    </h1>
+                    
+                    {/* Floating decorative elements */}
+                    <div className="relative inline-block">
+                        <div className="absolute -top-8 -left-8 text-2xl opacity-60 animate-bounce animation-delay-1000">✨</div>
+                        <div className="absolute -top-6 -right-8 text-xl opacity-60 animate-bounce animation-delay-3000">🚀</div>
+                        <div className="absolute -bottom-4 left-0 text-lg opacity-60 animate-bounce animation-delay-5000">💫</div>
+                    </div>
+                </header>
 
-            {/* Main content - flexible spacing */}
-            <div className="relative z-10 w-full flex-grow flex items-center justify-center">
-                {displayedElement}
-            </div>
+                {/* Main content section */}
+                <main className="w-full pb-20">
+                    {hasResult ? (
+                        <Results
+                            snippet={snippet}
+                            keywords={keywords}
+                            onBack={onReset}
+                            prompt={prompt}
+                        />
+                    ) : (
+                        <Form
+                            prompt={prompt}
+                            setPrompt={setPrompt}
+                            onSubmit={onSubmit}
+                            isLoading={isLoading}
+                            characterLimit={CHARACTER_LIMIT}
+                        />
+                    )}
+                </main>
 
-            {/* Footer - Always at bottom */}
-            <div className="mt-8 text-center text-white/60 text-sm relative z-10">
-                <p>Powered by advanced AI <br />• Create compelling brand content in seconds</p>
+                {/* Footer section */}
+                <footer className="w-full py-8 text-center">
+                    <p className="text-white/60 text-sm mb-2">
+                        Powered by advanced AI • Create compelling brand content in seconds
+                    </p>
+                    <div className="flex justify-center gap-6 text-white/40 text-xs">
+                        <span>🔒 Secure</span>
+                        <span>⚡ Fast</span>
+                        <span>🎯 Accurate</span>
+                        <span>🌟 Professional</span>
+                    </div>
+                </footer>
             </div>
         </div>
     );
 };
+
 
 export default CopyKitt;
